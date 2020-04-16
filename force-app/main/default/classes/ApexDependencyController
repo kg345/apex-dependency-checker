@@ -17,7 +17,7 @@ public without sharing class ApexDependencyController {
         HttpRequest req = new HttpRequest();
         req.setEndpoint(URL.getSalesforceBaseUrl().toExternalForm() +
                 '/services/data/v47.0/tooling/query/?q=' +
-                'SELECT+RefMetadataComponentName,RefMetadataComponentId' +
+                'SELECT+RefMetadataComponentName,RefMetadataComponentId,MetadataComponentName' +
                 '+FROM+MetadataComponentDependency' +
                 '+WHERE+RefMetadataComponentType=\'ApexClass\'');
         req.setMethod('GET');
