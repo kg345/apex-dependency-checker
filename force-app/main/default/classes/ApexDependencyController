@@ -33,7 +33,10 @@ public without sharing class ApexDependencyController {
     public static List<String> convertToListNames(ApexDependencyWrapper classDependencies){
         List<String> classesReferenced = new List<String>();
         for (ApexDependencyWrapper.DependencyRecords apexDepRec : classDependencies.records) {
-            classesReferenced.add(apexDepRec.RefMetadataComponentName);
+            //filter out any tests that are depedent on classes as expected
+            if(!apexDepRec.MetadataComponentName.contains('Test')){
+                classesReferenced.add(apexDepRec.RefMetadataComponentName);
+            }
         }
         return classesReferenced;
     }
